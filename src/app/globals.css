@@ -43,6 +43,46 @@
   --gold-soft: #e4cc98;
   --crimson: #8c1424;
   --line: rgba(201, 163, 95, 0.22);
+  --gold-grad: linear-gradient(100deg, #b8904a 0%, #f1dcaa 45%, #c9a35f 70%, #8f6a2e 100%);
+}
+
+/* Light mode: warm ivory paper with deep-ink type and a darker gold for contrast */
+:root[data-theme="light"] {
+  --ink: #f7f2ea;
+  --ink-2: #efe7da;
+  --ink-3: #e5dac8;
+  --ivory: #1a1411;
+  --muted: #6b5f50;
+  --gold: #946c2c;
+  --gold-soft: #b08540;
+  --crimson: #8c1424;
+  --line: rgba(148, 108, 44, 0.28);
+  --gold-grad: linear-gradient(100deg, #7a5520 0%, #b8904a 45%, #8f6a2e 70%, #5e4116 100%);
+}
+
+/*
+ * Sections laid over photography (heroes, CTA bands, image cards, lightbox)
+ * stay dark in both themes so the imagery and type keep their drama.
+ */
+.theme-dark {
+  --ink: #0a0807;
+  --ink-2: #13100e;
+  --ink-3: #1c1714;
+  --ivory: #f2e9dc;
+  --muted: #a89c8c;
+  --gold: #c9a35f;
+  --gold-soft: #e4cc98;
+  --line: rgba(201, 163, 95, 0.22);
+  --gold-grad: linear-gradient(100deg, #b8904a 0%, #f1dcaa 45%, #c9a35f 70%, #8f6a2e 100%);
+  color: var(--ivory);
+}
+
+/* Extra scrim only needed in light mode, where page overlays fade to ivory */
+.light-scrim {
+  display: none;
+}
+:root[data-theme="light"] .light-scrim {
+  display: block;
 }
 
 @theme inline {
@@ -64,9 +104,13 @@ html {
   color-scheme: dark;
   scroll-behavior: smooth;
 }
+:root[data-theme="light"] {
+  color-scheme: light;
+}
 
 body {
   background: var(--ink);
+  transition: background-color 0.5s ease, color 0.5s ease;
   color: var(--ivory);
   font-family: var(--font-sans);
   font-weight: 300;
@@ -97,7 +141,7 @@ body::after {
     @apply font-display font-normal leading-[0.95] tracking-[-0.01em];
   }
   .gold-text {
-    background: linear-gradient(100deg, #b8904a 0%, #f1dcaa 45%, #c9a35f 70%, #8f6a2e 100%);
+    background: var(--gold-grad);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

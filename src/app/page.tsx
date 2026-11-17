@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative flex min-h-screen items-center overflow-hidden">
+      <section className="theme-dark relative flex min-h-screen items-center overflow-hidden">
         <Image
           src="/images/candlelit-dinner.jpg"
           alt="Candlelit banquet table with disco balls and black linens"
@@ -100,7 +100,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-3">
             {experiences.slice(0, 3).map((x, i) => (
               <Reveal key={x.slug} delay={i * 120}>
-                <Link href={`/experiences#${x.slug}`} className="group relative block aspect-[3/4] overflow-hidden">
+                <Link href={`/experiences#${x.slug}`} className="theme-dark group relative block aspect-[3/4] overflow-hidden">
                   <Image src={x.image} alt={x.name} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-[1.6s] ease-out group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-8">
@@ -133,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* AFTER DARK FEATURE */}
-      <section className="relative overflow-hidden">
+      <section className="theme-dark relative overflow-hidden">
         <div className="grid md:grid-cols-2">
           <div className="relative min-h-[60vh]">
             <Image src="/images/red-lasers.jpg" alt="Red lasers over a dance floor" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />

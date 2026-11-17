@@ -24,7 +24,8 @@ export default function Contact() {
           <div className="relative hidden lg:block">
             <Image src="/images/place-setting.jpg" alt="Place card and lace mask on a dinner table" fill preload sizes="45vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-ink/20 to-ink" />
-            <div className="absolute bottom-12 left-12 right-12">
+            <div className="light-scrim theme-dark absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
+            <div className="theme-dark absolute bottom-12 left-12 right-12">
               <p className="display text-4xl leading-tight text-ivory">
                 &ldquo;Every unforgettable night begins with <em className="gold-text italic">a conversation.</em>&rdquo;
               </p>

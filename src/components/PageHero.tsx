@@ -16,7 +16,7 @@ export default function PageHero({
   position?: string;
 }) {
   return (
-    <section className="relative flex min-h-[78vh] items-end overflow-hidden">
+    <section className="theme-dark relative flex min-h-[78vh] items-end overflow-hidden">
       <Image
         src={image}
         alt=""

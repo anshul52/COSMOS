@@ -33,6 +33,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       // Browser extensions (e.g. Twilio) add attributes to <html> before React hydrates
       suppressHydrationWarning
     >
+      <head>
+        {/* Apply the saved theme before first paint so there is no flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem("theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">{children}</main>

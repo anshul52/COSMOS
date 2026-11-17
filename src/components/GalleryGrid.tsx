@@ -57,7 +57,7 @@ export default function GalleryGrid() {
 
       {current && (
         <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-ink/95 p-4 backdrop-blur-sm"
+          className="theme-dark fixed inset-0 z-[70] flex items-center justify-center bg-ink/95 p-4 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
           aria-label={current.alt}

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { contact, nav } from "@/lib/site";
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -41,10 +42,14 @@ export default function Header() {
     };
   }, [open]);
 
+  // Every page except Enquire opens on a dark photo hero, so the transparent
+  // header stays light-on-dark there until the visitor scrolls past it.
+  const overHero = !open && !scrolled && pathname !== "/contact";
+
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-700 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-700 ${overHero ? "theme-dark" : ""} ${
           open
             ? "bg-transparent"
             : scrolled
@@ -77,10 +82,14 @@ export default function Header() {
                 </Link>
               );
             })}
+            <ThemeToggle />
             <Link href="/contact" className="btn-gold !px-6 !py-3">
               Enquire
             </Link>
           </nav>
+
+          <div className="flex items-center gap-3 lg:hidden">
+          <ThemeToggle />
 
           <button
             type="button"
@@ -93,6 +102,7 @@ export default function Header() {
             <span className={`h-px w-7 bg-gold transition-transform duration-500 ${open ? "translate-y-[3.5px] rotate-45" : ""}`} />
             <span className={`h-px w-7 bg-gold transition-transform duration-500 ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
           </button>
+          </div>
         </div>
       </header>
 

@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 export default function CtaBand() {
   return (
-    <section className="relative overflow-hidden py-36">
+    <section className="theme-dark relative overflow-hidden py-36">
       <Image src="/images/martini-ribbons.jpg" alt="" fill sizes="100vw" className="object-cover opacity-35" />
       <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/60 to-ink" />
       <Reveal className="relative mx-auto max-w-3xl px-5 text-center">
