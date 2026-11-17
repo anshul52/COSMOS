@@ -20,11 +20,11 @@ const jost = Jost({
 
 export const metadata: Metadata = {
   title: {
-    default: "The Cosmos — Luxury Party & Event House",
-    template: "%s — The Cosmos",
+    default: "Cosmos — Luxury Party & Event House",
+    template: "%s — Cosmos",
   },
   description:
-    "The Cosmos designs unforgettable luxury parties: masquerade balls, Gatsby soirées, private dinners and after-dark celebrations.",
+    "Cosmos designs unforgettable luxury parties: masquerade balls, Gatsby soirées, private dinners and after-dark celebrations.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

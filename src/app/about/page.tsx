@@ -6,7 +6,7 @@ import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "The House",
-  description: "The story, philosophy and craft behind The Cosmos luxury party house.",
+  description: "The story, philosophy and craft behind Cosmos luxury party house.",
 };
 
 const values = [
@@ -30,7 +30,7 @@ export default function About() {
         eyebrow="The House"
         title="Born of a love for"
         italic="extraordinary nights"
-        intro="The Cosmos is a luxury party house that treats every celebration as a work of art: conceived, designed and directed by one devoted team."
+        intro="Cosmos is a luxury party house that treats every celebration as a work of art: conceived, designed and directed by one devoted team."
         image="/images/masked-guests.jpg"
         position="center 62%"
       />
@@ -48,12 +48,12 @@ export default function About() {
           </h2>
           <div className="mt-8 space-y-6 leading-relaxed text-muted">
             <p>
-              We named ourselves The Cosmos because every great party is its own universe, with its own
+              We named ourselves Cosmos because every great party is its own universe, with its own
               light, its own gravity and its own rules. For a few hours, the outside world disappears.
             </p>
             <p>
               Our founders came from hospitality, set design and nightlife. They saw too many events that
-              looked expensive but felt forgettable, and built The Cosmos to do the opposite: evenings
+              looked expensive but felt forgettable, and built Cosmos to do the opposite: evenings
               where every texture, sound and moment is chosen on purpose.
             </p>
             <p>
@@ -61,7 +61,7 @@ export default function About() {
               productions for families, founders and brands who want to be remembered.
             </p>
           </div>
-          <p className="display gold-text mt-10 text-3xl italic">The Cosmos Team</p>
+          <p className="display gold-text mt-10 text-3xl italic">Cosmos Team</p>
         </Reveal>
       </section>
 

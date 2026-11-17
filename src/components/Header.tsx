@@ -58,7 +58,7 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:px-10">
-          <Link href="/" onClick={() => setOpen(false)} aria-label="The Cosmos — home">
+          <Link href="/" onClick={() => setOpen(false)} aria-label="Cosmos — home">
             <Logo />
           </Link>
 

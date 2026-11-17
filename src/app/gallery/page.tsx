@@ -5,7 +5,7 @@ import GalleryGrid from "@/components/GalleryGrid";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "Moments from The Cosmos: masquerades, candlelit dinners, champagne towers and after-dark nights.",
+  description: "Moments from Cosmos: masquerades, candlelit dinners, champagne towers and after-dark nights.",
 };
 
 export default function Gallery() {

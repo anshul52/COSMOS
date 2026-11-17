@@ -45,7 +45,7 @@ export default function Footer() {
       </div>
       <div className="hairline" />
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-6 text-[0.65rem] uppercase tracking-[0.3em] text-muted md:flex-row md:px-10">
-        <span>© 2026 The Cosmos</span>
+        <span>© 2026 Cosmos</span>
         <span>By invitation, by design</span>
       </div>
     </footer>

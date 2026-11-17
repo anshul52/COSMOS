@@ -8,7 +8,7 @@ import { experiences } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Experiences",
-  description: "Masquerade balls, Gatsby soirées, private dining, after-dark productions and jazz lounges by The Cosmos.",
+  description: "Masquerade balls, Gatsby soirées, private dining, after-dark productions and jazz lounges by Cosmos.",
 };
 
 const extras = [

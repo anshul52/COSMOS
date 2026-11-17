@@ -7,7 +7,7 @@ import { contact } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Enquire",
-  description: "Begin planning your luxury party or private event with The Cosmos.",
+  description: "Begin planning your luxury party or private event with Cosmos.",
 };
 
 const faqs = [

@@ -13,7 +13,6 @@ export default function Logo({ large = false }: { large?: boolean }) {
         <circle cx="34" cy="11" r="1.4" fill="currentColor" className="text-gold-soft" stroke="none" />
       </svg>
       <span className="flex flex-col leading-none">
-        <span className="text-[0.55rem] uppercase tracking-[0.5em] text-muted">The</span>
         <span className={`display ${large ? "text-5xl" : "text-2xl"} tracking-[0.12em] text-ivory`}>COSMOS</span>
       </span>
     </span>

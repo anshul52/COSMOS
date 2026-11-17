@@ -31,7 +31,7 @@ export default function Home() {
         <div className="relative mx-auto w-full max-w-7xl px-5 pt-24 text-center md:px-10">
           <p className="eyebrow mb-8">Luxury Party &amp; Event House</p>
           <h1 className="display text-[3.6rem] text-ivory sm:text-8xl md:text-[9rem]">
-            The <em className="gold-text italic">Cosmos</em>
+            <em className="gold-text italic">Cosmos</em>
           </h1>
           <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-ivory/80 md:text-lg">
             Evenings of candlelight, masks and champagne, designed for those who never settle for an ordinary night.
@@ -67,7 +67,7 @@ export default function Home() {
             We don&apos;t plan parties. <em className="gold-text italic">We stage legends.</em>
           </h2>
           <p className="mt-8 max-w-lg leading-relaxed text-muted">
-            The Cosmos was born from a simple belief: the best nights feel cinematic. Lace masks at every
+            Cosmos was born from a simple belief: the best nights feel cinematic. Lace masks at every
             place setting. A champagne tower catching candlelight. A DJ who knows exactly when to turn the
             room red. We obsess over the details so you can lose yourself in the evening.
           </p>
@@ -118,7 +118,7 @@ export default function Home() {
       {/* PILLARS */}
       <section className="mx-auto max-w-7xl px-5 py-28 md:px-10 md:py-40">
         <Reveal className="mx-auto mb-20 max-w-2xl text-center">
-          <p className="eyebrow mb-6">The Cosmos Method</p>
+          <p className="eyebrow mb-6">Cosmos Method</p>
           <h2 className="display text-5xl text-ivory md:text-6xl">From first idea to <em className="gold-text italic">final toast</em></h2>
         </Reveal>
         <div className="grid gap-px bg-line md:grid-cols-3">
