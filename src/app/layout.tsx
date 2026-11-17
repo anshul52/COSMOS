@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s — Cosmos",
   },
   description:
-    "Cosmos designs unforgettable luxury parties: masquerade balls, Gatsby soirées, private dinners and after-dark celebrations.",
+    "Cosmos designs unforgettable luxury parties in Bhopal and Indore: masquerade balls, Gatsby soirées, private dinners and after-dark celebrations.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

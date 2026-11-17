@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   { q: "How far in advance should we book?", a: "For large productions we recommend three to six months. Intimate dinners can often be arranged in three to four weeks." },
-  { q: "Do you travel?", a: "Yes. We design events across India and at destination venues abroad." },
+  { q: "Where do you host events?", a: "We are based in Bhopal and Indore, and most of our evenings happen across these two cities. For the right celebration, we also travel to destination venues elsewhere in India." },
   { q: "Can you work with our venue?", a: "Absolutely. We can transform a venue you love, or source one from our private collection." },
 ];
 

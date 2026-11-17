@@ -10,7 +10,7 @@ export const nav = [
 export const contact = {
   phone: "+91 00000 00000",
   email: "hello@thecosmos.events",
-  city: "Mumbai · Delhi · Goa",
+  city: "Bhopal · Indore",
   instagram: "https://instagram.com/",
 };
 
