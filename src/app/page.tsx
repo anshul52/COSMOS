@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
+import EventFeature from "@/components/EventFeature";
 import { experiences } from "@/lib/site";
+import { getUpcomingEvents } from "@/lib/events";
 
 const pillars = [
   { n: "I", title: "Concept", text: "Every evening begins with a story: a theme, a palette, a feeling we want your guests to carry home." },
@@ -12,7 +14,9 @@ const pillars = [
 
 const marquee = ["Masquerade Balls", "Gatsby Soirées", "Private Dining", "After Dark", "Jazz Lounges", "Milestone Birthdays", "Brand Launches"];
 
-export default function Home() {
+export default async function Home() {
+  const [nextEvent] = await getUpcomingEvents();
+
   return (
     <>
       {/* HERO */}
@@ -28,7 +32,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,8,7,0.35),rgba(10,8,7,0.92)_75%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" />
 
-        <div className="relative mx-auto w-full max-w-7xl px-5 pt-24 text-center md:px-10">
+        <div className="relative mx-auto w-full max-w-7xl px-5 pb-32 pt-28 text-center md:px-10">
           <p className="eyebrow mb-8">Luxury Party &amp; Event House</p>
           <h1 className="display text-[3.6rem] text-ivory sm:text-8xl md:text-[9rem]">
             <em className="gold-text italic">Cosmos</em>
@@ -40,6 +44,33 @@ export default function Home() {
             <Link href="/contact" className="btn-gold">Plan your evening</Link>
             <Link href="/experiences" className="btn-ghost">Our experiences</Link>
           </div>
+
+          {nextEvent && (
+            <Link
+              href={`/events#${nextEvent.slug}`}
+              className="group mx-auto mt-14 flex max-w-md items-center gap-4 border border-[#e07a86]/40 bg-[linear-gradient(135deg,rgba(42,7,12,0.85),rgba(10,8,7,0.85))] p-3 pr-5 text-left backdrop-blur-sm transition-colors duration-500 hover:border-[#e07a86]"
+            >
+              <span className="relative block aspect-[4/5] w-16 shrink-0 overflow-hidden">
+                <Image src={nextEvent.poster.src} alt="" fill sizes="64px" className="object-cover" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="flex items-center gap-2 text-[0.6rem] uppercase tracking-[0.32em] text-[#e07a86]">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#e07a86] opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#e07a86]" />
+                  </span>
+                  Upcoming
+                </span>
+                <span className="display mt-1 block text-2xl leading-tight text-ivory">
+                  {nextEvent.name} <em className="text-base italic text-ivory/70">ft. {nextEvent.artist.name}</em>
+                </span>
+                <span className="mt-1 block truncate text-xs text-muted">
+                  {nextEvent.dateLabel} · {nextEvent.venue.name}, {nextEvent.venue.area}
+                </span>
+              </span>
+              <span className="text-gold transition-transform duration-500 group-hover:translate-x-1" aria-hidden>→</span>
+            </Link>
+          )}
         </div>
 
         <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3 text-[0.6rem] uppercase tracking-[0.4em] text-muted">
@@ -58,6 +89,9 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* UPCOMING EVENT */}
+      {nextEvent && <EventFeature event={nextEvent} />}
 
       {/* INTRO */}
       <section className="mx-auto grid max-w-7xl items-center gap-16 px-5 py-28 md:grid-cols-2 md:px-10 md:py-40">

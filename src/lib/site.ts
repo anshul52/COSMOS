@@ -2,6 +2,7 @@ export const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "The House" },
   { href: "/experiences", label: "Experiences" },
+  { href: "/events", label: "Events" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Enquire" },
 ] as const;
@@ -81,3 +82,30 @@ export const gallery = [
   { src: "/images/gatsby-gowns.jpg", alt: "Guests in black gowns and fur", w: 398, h: 533 },
   { src: "/images/dj-performance.png", alt: "DJ performing in front of a red light wall", w: 720, h: 1280 },
 ] as const;
+
+// Upcoming nights. Events drop off the site automatically once `endsAt` has passed.
+export const events = [
+  {
+    slug: "capso-night",
+    name: "Capso Night",
+    tagline: "Featuring DJ Kapsology",
+    artist: { name: "DJ Kapsology", instagram: "https://instagram.com/kapsology_", handle: "@kapsology_" },
+    poster: { src: "/events/capso-night.jpg", w: 1080, h: 1350 },
+    // IST (UTC+05:30)
+    startsAt: "2026-11-27T20:00:00+05:30",
+    endsAt: "2026-11-28T04:00:00+05:30",
+    dateLabel: "Fri · 27 Nov 2026",
+    timeLabel: "8 PM onwards",
+    venue: {
+      name: "Veer Villa",
+      area: "Airport Rd, Bhopal",
+      directions: "Behind Urban Courtyard, near Carnival Lawn, Data Colony, Suraj Nagar / Lalghati",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Veer+Villa+Airport+Road+Bhopal",
+    },
+    reservations: ["+91 87200 50957", "+91 76977 08777"],
+    description:
+      "Cosmos turns the lights red for a night with DJ Kapsology behind the decks. Club-grade sound, a packed floor and a set built to run late at Veer Villa, Bhopal.",
+  },
+] as const;
+
+export type CosmosEvent = (typeof events)[number];
