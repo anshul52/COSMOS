@@ -9,10 +9,10 @@ export const nav = [
 
 export const telHref = (n: string) => `tel:${n.replace(/\s/g, "")}`;
 
-// Placeholder email: replace with the real one
+// Public contact details shown across the site
 export const contact = {
   phones: ["+91 87200 50957", "+91 76977 08777"],
-  email: "hello@thecosmos.events",
+  email: "tcosmos227@gmail.com",
   city: "Bhopal · Indore",
   instagram: "https://www.instagram.com/thecosmosgallery/",
   instagramHandle: "@thecosmosgallery",
