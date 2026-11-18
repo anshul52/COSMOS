@@ -38,7 +38,7 @@ export default function Footer() {
             </li>
             <li className="text-muted">{contact.city}</li>
             <li>
-              <a href={contact.instagram} target="_blank" rel="noreferrer" className="hover:text-gold">Instagram ↗</a>
+              <a href={contact.instagram} target="_blank" rel="noreferrer" className="hover:text-gold">{contact.instagramHandle} ↗</a>
             </li>
           </ul>
         </div>

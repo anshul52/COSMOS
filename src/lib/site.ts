@@ -12,7 +12,8 @@ export const contact = {
   phone: "+91 00000 00000",
   email: "hello@thecosmos.events",
   city: "Bhopal · Indore",
-  instagram: "https://instagram.com/",
+  instagram: "https://www.instagram.com/thecosmosgallery/",
+  instagramHandle: "@thecosmosgallery",
 };
 
 export const experiences = [

@@ -152,6 +152,9 @@ export default function Header() {
           }`}
         >
           <a href={`mailto:${contact.email}`} className="block text-ivory/80 hover:text-gold">{contact.email}</a>
+          <a href={contact.instagram} target="_blank" rel="noreferrer" className="block text-ivory/80 hover:text-gold">
+            Instagram {contact.instagramHandle} ↗
+          </a>
           <p>{contact.city}</p>
         </div>
       </div>

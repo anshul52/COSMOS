@@ -5,6 +5,7 @@ import EventFeature from "@/components/EventFeature";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
 import { getUpcomingEvents } from "@/lib/events";
+import { contact } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Events",
@@ -34,7 +35,13 @@ export default async function Events() {
             <h2 className="display text-4xl text-ivory md:text-5xl">
               The next night is <em className="gold-text italic">being planned.</em>
             </h2>
-            <p className="mt-6 text-muted">Follow us on Instagram or send an enquiry to hear first.</p>
+            <p className="mt-6 text-muted">
+              Follow{" "}
+              <a href={contact.instagram} target="_blank" rel="noreferrer" className="text-gold hover:underline">
+                {contact.instagramHandle}
+              </a>{" "}
+              on Instagram or send an enquiry to hear first.
+            </p>
             <Link href="/contact" className="btn-ghost mt-10">Enquire</Link>
           </Reveal>
         </section>

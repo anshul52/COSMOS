@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { CosmosEvent } from "@/lib/site";
+import { contact, type CosmosEvent } from "@/lib/site";
 import Reveal from "./Reveal";
 
 const tel = (n: string) => `tel:${n.replace(/\s/g, "")}`;
@@ -80,6 +80,9 @@ export default function EventFeature({ event, headingLevel = "h2" }: { event: Co
               </a>
               <a href={event.artist.instagram} target="_blank" rel="noreferrer" className="border-b border-gold pb-1 text-gold">
                 {event.artist.handle} ↗
+              </a>
+              <a href={contact.instagram} target="_blank" rel="noreferrer" className="border-b border-gold pb-1 text-gold">
+                {contact.instagramHandle} ↗
               </a>
             </div>
           </div>
