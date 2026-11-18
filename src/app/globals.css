@@ -44,6 +44,7 @@
   --crimson: #8c1424;
   --line: rgba(201, 163, 95, 0.22);
   --gold-grad: linear-gradient(100deg, #b8904a 0%, #f1dcaa 45%, #c9a35f 70%, #8f6a2e 100%);
+  --error: #e07a86;
 }
 
 /* Light mode: warm ivory paper with deep-ink type and a darker gold for contrast */
@@ -58,6 +59,7 @@
   --crimson: #8c1424;
   --line: rgba(148, 108, 44, 0.28);
   --gold-grad: linear-gradient(100deg, #7a5520 0%, #b8904a 45%, #8f6a2e 70%, #5e4116 100%);
+  --error: #a3192d;
 }
 
 /*
@@ -95,6 +97,7 @@
   --color-gold-soft: var(--gold-soft);
   --color-crimson: var(--crimson);
   --color-line: var(--line);
+  --color-error: var(--error);
   --font-display: "The Seasons", var(--font-cormorant), Georgia, serif;
   --font-sans: var(--font-jost), system-ui, sans-serif;
 }

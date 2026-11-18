@@ -1,41 +1,43 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState, type FormEvent } from "react";
+import { startTransition, useActionState, type FormEvent } from "react";
+import { submitEnquiry, type EnquiryState } from "@/app/contact/actions";
 import { contact, experiences } from "@/lib/site";
 
 const field =
   "w-full border-0 border-b border-ivory/20 bg-transparent px-0 py-3 text-ivory placeholder:text-muted/60 focus:border-gold focus:outline-none focus:ring-0 transition-colors";
 const label = "text-[0.65rem] uppercase tracking-[0.3em] text-muted";
 
+const initial: EnquiryState = { status: "idle" };
+
 export default function EnquiryForm() {
   const params = useSearchParams();
   const preset = params.get("experience") ?? "";
-  const [sent, setSent] = useState(false);
+  // Each submission is saved as a row in the Google Sheet (see app/contact/actions.ts)
+  const [state, action, pending] = useActionState(submitEnquiry, initial);
 
-  // No backend yet: this opens the visitor's email app with the enquiry pre-filled.
-  // Swap for a Server Action or form service when ready.
+  // Submit manually instead of <form action> so React doesn't clear the fields
+  // when sending fails and the visitor needs to retry.
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const body = [...data.entries()].map(([k, v]) => `${k}: ${v}`).join("\n");
-    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(
-      `Enquiry from ${data.get("name")}`
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    startTransition(() => action(data));
   }
 
-  if (sent) {
+  if (state.status === "success") {
     return (
       <div className="border border-line p-10 text-center">
         <p className="display gold-text text-5xl italic">Thank you</p>
-        <p className="mt-4 text-muted">Your enquiry is on its way. We&apos;ll be in touch within 24 hours.</p>
+        <p className="mt-4 text-muted">Your enquiry has reached us. We&apos;ll be in touch within 24 hours.</p>
       </div>
     );
   }
 
   return (
     <form onSubmit={onSubmit} className="grid gap-10 sm:grid-cols-2">
+      {/* Honeypot for spam bots: hidden from people and screen readers */}
+      <input name="company" tabIndex={-1} autoComplete="off" aria-hidden className="absolute -left-[9999px] h-0 w-0 opacity-0" />
       <label className="block">
         <span className={label}>Full name</span>
         <input name="name" required autoComplete="name" className={field} placeholder="Your name" />
@@ -50,7 +52,7 @@ export default function EnquiryForm() {
       </label>
       <label className="block">
         <span className={label}>Event date</span>
-        <input name="date" type="date" className={`${field} [color-scheme:dark]`} />
+        <input name="date" type="date" className={field} />
       </label>
       <label className="block">
         <span className={label}>Experience</span>
@@ -77,7 +79,15 @@ export default function EnquiryForm() {
         <textarea name="message" rows={4} className={`${field} resize-none`} placeholder="The occasion, the mood, the venue, anything you're dreaming of…" />
       </label>
       <div className="sm:col-span-2">
-        <button type="submit" className="btn-gold">Send enquiry</button>
+        <button type="submit" disabled={pending} className="btn-gold disabled:cursor-wait disabled:opacity-60">
+          {pending ? "Sending…" : "Send enquiry"}
+        </button>
+        {state.status === "error" && (
+          <p role="alert" className="mt-5 text-sm text-error">
+            {state.message} Please try again, or write to us at{" "}
+            <a href={`mailto:${contact.email}`} className="underline hover:text-gold">{contact.email}</a>.
+          </p>
+        )}
       </div>
     </form>
   );
