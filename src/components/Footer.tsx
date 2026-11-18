@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { contact, nav } from "@/lib/site";
+import { contact, nav, telHref } from "@/lib/site";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -30,9 +30,11 @@ export default function Footer() {
         <div>
           <p className="eyebrow mb-6">Private Line</p>
           <ul className="space-y-3 text-sm text-ivory/80">
-            <li>
-              <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="hover:text-gold" suppressHydrationWarning>{contact.phone}</a>
-            </li>
+            {contact.phones.map((n) => (
+              <li key={n}>
+                <a href={telHref(n)} className="hover:text-gold" suppressHydrationWarning>{n}</a>
+              </li>
+            ))}
             <li>
               <a href={`mailto:${contact.email}`} className="hover:text-gold">{contact.email}</a>
             </li>

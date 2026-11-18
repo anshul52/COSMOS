@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { contact, type CosmosEvent } from "@/lib/site";
+import { contact, telHref, type CosmosEvent } from "@/lib/site";
 import Reveal from "./Reveal";
 
-const tel = (n: string) => `tel:${n.replace(/\s/g, "")}`;
 
 /** Full-width poster + details block for a single upcoming event. */
 export default function EventFeature({ event, headingLevel = "h2" }: { event: CosmosEvent; headingLevel?: "h2" | "h3" }) {
@@ -69,7 +68,7 @@ export default function EventFeature({ event, headingLevel = "h2" }: { event: Co
               {event.reservations.map((n, i) => (
                 // suppressHydrationWarning: click-to-call browser extensions (e.g. Twilio softphone)
                 // decorate tel: links before React hydrates.
-                <a key={n} href={tel(n)} className={i === 0 ? "btn-gold" : "btn-ghost"} suppressHydrationWarning>
+                <a key={n} href={telHref(n)} className={i === 0 ? "btn-gold" : "btn-ghost"} suppressHydrationWarning>
                   {n}
                 </a>
               ))}

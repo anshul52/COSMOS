@@ -7,9 +7,11 @@ export const nav = [
   { href: "/contact", label: "Enquire" },
 ] as const;
 
-// Placeholder contact details: replace with the real ones
+export const telHref = (n: string) => `tel:${n.replace(/\s/g, "")}`;
+
+// Placeholder email: replace with the real one
 export const contact = {
-  phone: "+91 00000 00000",
+  phones: ["+91 87200 50957", "+91 76977 08777"],
   email: "hello@thecosmos.events",
   city: "Bhopal · Indore",
   instagram: "https://www.instagram.com/thecosmosgallery/",
@@ -103,7 +105,7 @@ export const events = [
       directions: "Behind Urban Courtyard, near Carnival Lawn, Data Colony, Suraj Nagar / Lalghati",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Veer+Villa+Airport+Road+Bhopal",
     },
-    reservations: ["+91 87200 50957", "+91 76977 08777"],
+    reservations: contact.phones,
     description:
       "Cosmos turns the lights red for a night with DJ Kapsology behind the decks. Club-grade sound, a packed floor and a set built to run late at Veer Villa, Bhopal.",
   },

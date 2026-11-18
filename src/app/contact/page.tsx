@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import EnquiryForm from "@/components/EnquiryForm";
-import { contact } from "@/lib/site";
+import { contact, telHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Enquire",
@@ -58,7 +58,9 @@ export default function Contact() {
             <ul className="space-y-6">
               <li>
                 <p className="text-[0.65rem] uppercase tracking-[0.3em] text-muted">Call</p>
-                <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="display text-3xl text-ivory hover:text-gold" suppressHydrationWarning>{contact.phone}</a>
+                {contact.phones.map((n) => (
+                  <a key={n} href={telHref(n)} className="display block text-3xl text-ivory hover:text-gold" suppressHydrationWarning>{n}</a>
+                ))}
               </li>
               <li>
                 <p className="text-[0.65rem] uppercase tracking-[0.3em] text-muted">Write</p>

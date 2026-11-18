@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { contact, nav } from "@/lib/site";
+import { contact, nav, telHref } from "@/lib/site";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 
@@ -151,6 +151,9 @@ export default function Header() {
             open ? "opacity-100" : "opacity-0"
           }`}
         >
+          {contact.phones.map((n) => (
+            <a key={n} href={telHref(n)} className="block text-ivory/80 hover:text-gold" suppressHydrationWarning>{n}</a>
+          ))}
           <a href={`mailto:${contact.email}`} className="block text-ivory/80 hover:text-gold">{contact.email}</a>
           <a href={contact.instagram} target="_blank" rel="noreferrer" className="block text-ivory/80 hover:text-gold">
             Instagram {contact.instagramHandle} ↗
